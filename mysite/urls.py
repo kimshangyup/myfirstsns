@@ -13,4 +13,6 @@ urlpatterns = patterns('',
  	url(r'^blog/(\d+)/','blog.views.blog'),
  	url(r'^blog/comment/(\d+)/','blog.views.blog_comment'),
  	url(r'^blog/comment/delete/(\d+)/','blog.views.blog_comment_delete'),	
+ 	url(r'^ment/','blog.views.ment_write'),
+ 	url(r'^fetch/','blog.views.fetch'),
 )

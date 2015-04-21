@@ -1,10 +1,97 @@
 {% extends 'layout.html' %}
+
+
+{% block head %}
+<style>
+	#chat_box{
+		width:400px;
+		height:300px;
+		overflow-y:scroll;
+	}
+</style>
+{% endblock %}
 {% block body %}
 	<div>
 		<p>
-			shangyup
+			채팅
 		<a href="/">홈으로</a>
 		</p>
 	</div>
+
+<div class="panel panel-default">
+<div class="panel-body" id="chat_box">
+{% for i in ment %}
+<div>{{i.name}}:{{i.ment}}</div>
+{% endfor %}
+</div>
+
+</div>
+<div class="form-group">
+	<label for="name">내 이름:</label><textarea class="form-control" name="name" id="name" rows="1" placeholder="나의 이름을 입력하세요"></textarea><br>
+	<label for="ment">할 말:</label><textarea class="form-control" name="ment" id="ment" rows="3" placeholder="엔터키를 치면 전송됩니다"></textarea>
+	<br>
+	<button class="btn btn-default" id="submitb">말하기</button>
+	<button class="btn btn-default" id="fetchb">가져오기</button>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+var append_ment=function(msg){
+
+$('#ment').val('');
+ment_line=$('<div>')
+ment_line.append(msg)
+$('#chat_box').prepend(ment_line)
+}
+
+var fetch_ment=function(){
+
+$.ajax({
+			type:"GET",
+			url:"/fetch/",
+			data:{
+				
+			},
+			success:function(msg){
+				append_ment(msg);
+			},
+			error:function(){
+				alert('fail');
+			}
+		})
+}
+
+
+var submit_ment=function(){
+
+$.ajax({
+			type:"POST",
+			url:"/ment/",
+			data:{
+				"name":$('#name').val(),
+				"ment":$('#ment').val()
+			},
+			success:function(msg){
+				append_ment(msg);
+			},
+			error:function(){
+				alert('fail');
+			}
+		})
+}
+
+
+$('#ment').on('keypress',function(e){
+	if(e.keyCode==13){
+		submit_ment();
+	}
+})
+$('#submitb').on('click',submit_ment);
+$('#fetchb').on('click',fetch_ment);
+
+</script>
 
 {% endblock %}

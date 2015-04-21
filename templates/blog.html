@@ -1,34 +1,36 @@
 {% extends 'layout.html' %}
 
+
 {% block body %}
 
 
-
+<br>
 <div class="panel panel-default">
 <div class="panel-body">
+
 {% for i in e %}
-<h4>{{i.title}}</h4>
+<h4>Q. {{i.title}}</h4>
 <h5>{{i.category.title}} / {{i.created}}</h5>
 <p>{{i.text}}</p>
 
 
 {% for i in c %}
 
-{{i.text}} - by {{i.name}} <a href="/blog/comment/delete/{{i.id}}/">delete</a><br>
+A. {{i.text}} - {{i.name}} <a href="/blog/comment/delete/{{i.id}}/">delete</a><br>
 {% endfor %}
 
 <br>
 <form method="post" class="form-group" action="/blog/comment/{{i.id}}/">
  <input type="hidden" name="entry_id" value="{{i.id}}" />
  <div class="col-md-6">
-    <label for="name">글쓴이</label><input class="form-control" type="text" id="name" name="name" value="" />
+    <label for="name">글쓴이</label><input class="form-control" type="text" id="name" name="name" value="운영진" />
     </div>
     <div class="col-md-6">
     <label for="password">비밀번호</label><input class="form-control" type="password" id="password" name="password" value="" />
     </div>
     <div class="col-md-12">
-    <label for="content">댓글 내용</label><textarea class="form-control" id="content" name="content"></textarea><br>
-    <button class="btn btn-default">댓글 달기</button><br>
+    <label for="content">답변 내용</label><textarea class="form-control" id="content" name="content"></textarea><br>
+    <button class="btn btn-success">답변 달기</button><br>
 	</div>
     
 </form>

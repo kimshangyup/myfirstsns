@@ -14,20 +14,60 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+<style>
+	
+	a{
+		color:#22b300;
+	}
+	.navbar-default{
+		background-image:linear-gradient(to bottom,#23b300,0,#23b300 100%);
+	}
+	.navbar-default .navbar-nav>li>a{
+				color:white;
+	}
+	.navbar-default .navbar-nav>li>a:hover{
+		color:yellow;
+	}
+	body{
+		background-color:#f9f9f9;
+	}
+	.col-md-4{
+		margin-top:50px;
+	}
+	.navbar-default .navbar-brand{
+		color:white;
+	}
+	.navbar-default .navbar-brand:hover{
+		color:yellow;
+	}
+</style>
 {% block head %}
 {% endblock %}
 </head>
 <body>
 
 
-<nav class="navbar navbar-default">
-	 <div class="navbar-header">
-	<ul class="nav navbar-nav">
-		<li><a href="/">home</a></li>
-		<li><a href="/test">test</a></li>
-		<li><a href="/blog/1">first</a></li>
-		<li><a href="">hello</a></li>
-	</ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+
+	<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+		 <a class="navbar-brand" href="/">서울대 지식인</a>
+	    </div>
+		 <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="/test">채팅(준비중)</a></li>
+				<li><a href="/blog/1">지식인이 궁금하다면?</a></li>
+				<li><a href="#">소개</a></li>
+			</ul>
+		</div>
 	</div>
 </nav>
 

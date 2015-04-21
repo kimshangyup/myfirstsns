@@ -10,7 +10,7 @@
 
 	}
 	.panel-body:hover{
-		background-color:#337ab7;
+		background-color:#23b300;
 	}
 </style>
 {% endblock %}
@@ -18,7 +18,7 @@
 
 
 
-	<a href="/test/">test로</a>
+	<br>
 
 
 <form action="/write/" method="POST">
@@ -28,12 +28,12 @@
 		{% for i in category %}
 		<option value="{{i.id}}">{{i.title}}</option>
 		{% endfor %}<br>
-	</select>
-	<label for="title">글 제목:</label><textarea class="form-control" name="title" id="title" rows="3" placeholder="무슨 생각을 하고 계신가요?"></textarea>
+	</select><br>
+	<label for="title">질문 제목:</label><textarea class="form-control" name="title" id="title" rows="3" placeholder="무엇이 궁금하신가요?"></textarea>
 	<br>
-	<label for="text">글 내용:</label><textarea class="form-control" name="text" id="text" rows="3" placeholder="더 구체적으로 적어주셔도 됩니다"></textarea><br>
+	<label for="text">질문 내용:</label><textarea class="form-control" name="text" id="text" rows="3" placeholder="더 구체적으로 질문을 적어주세요"></textarea><br>
 	
-	<button type="submit" class="btn btn-default" id="submitb">제출하기</button>	
+	<button type="submit" class="btn btn-success" id="submitb">질문하기</button>	
 </div>
 </form>
 
@@ -41,7 +41,7 @@
 
 <a href="/blog/{{i.id}}/"><div class="panel panel-default">
 <div class="panel-body">
-<h4>{{i.title}}</h4>
+<h4>Q. {{i.title}} ({{i.cnumber}})</h4>
 <h5>{{i.category.title}} / {{i.created}}</h5>
 </div>
 </div>

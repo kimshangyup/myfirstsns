@@ -13,6 +13,7 @@ class Entries(models.Model):
 	text=models.TextField(null=False)
 	Comment=models.IntegerField(default=0,null=True)
 	category=models.ForeignKey(Category)
+	cnumber=models.IntegerField(default=0)
 	created=models.DateTimeField(auto_now=True)
 
 class Comment(models.Model):
@@ -21,3 +22,9 @@ class Comment(models.Model):
 	text=models.CharField(max_length=50,null=False)
 	created=models.DateTimeField(auto_now=True)
 	entry=models.ForeignKey(Entries)
+
+class Chat(models.Model):
+	name=models.CharField(max_length=20,null=False)
+	ment=models.CharField(max_length=50,null=False)
+	created=models.DateTimeField(auto_now=True)
+	
